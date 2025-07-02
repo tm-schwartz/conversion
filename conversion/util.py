@@ -59,14 +59,13 @@ def read_cases(file):
 
 
 def loadExecutable(exe):
-
+    ret_val = call(exe, shell=True)
     if call(exe, shell=True):
+        print(f'{exe} found')
+    else:
         print(f'{exe} could not be found')
         print(f'Set "export PATH=$PATH:path_of_{exe}" and retry')
         exit(1)
-    else:
-        print(f'{exe} found')
-
 
 def num2str(x):
     if x>10e-7:
